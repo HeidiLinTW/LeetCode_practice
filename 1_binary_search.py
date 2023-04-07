@@ -7,7 +7,7 @@
 """
 
 
-def search_target(search_list: list, target: int) -> int:
+def search_target_heidi(search_list: list[int], target: int) -> int:
     # O(n)
     index = -1
     list_len = len(search_list)
@@ -18,6 +18,7 @@ def search_target(search_list: list, target: int) -> int:
 
 
 def search_binary(nums: list[int], target: int) -> int:
+    # [left, right]
     # O(log n)
     left = 0
     right = len(nums) - 1
@@ -25,6 +26,22 @@ def search_binary(nums: list[int], target: int) -> int:
         middle = (left + right) // 2
         if nums[middle] > target:
             right = middle - 1
+        elif nums[middle] < target:
+            left = middle + 1
+        else:
+            return middle
+    return -1
+
+
+def search_binary_right_open(nums: list[int], target: int) -> int:
+    # [left, right)
+    # O(log n)
+    left = 0
+    right = len(nums)
+    while left < right:
+        middle = (left + right) // 2
+        if nums[middle] > target:
+            right = middle
         elif nums[middle] < target:
             left = middle + 1
         else:
