@@ -14,7 +14,7 @@ Return k.
 """
 
 
-def removeElement_leetcode(nums: list[int], val: int) -> int:
+def removeElement(nums: list[int], val: int) -> int:
     if len(nums) == 0:
         return 0
     else:
@@ -26,9 +26,18 @@ def removeElement_leetcode(nums: list[int], val: int) -> int:
         return len(nums)
 
 
+def removeElement_2_pointers(nums: list[int], val: int) -> int:
+    slow = 0
+    for fast in range(len(nums)):
+        if nums[fast] != val:
+            nums[slow] = nums[fast]
+            slow += 1
+    return slow
+
+
 if __name__ == "__main__":
     input_data = [0,1,2,2,3,0,4,2]
-    result = removeElement_leetcode(input_data, 2)
+    result = removeElement_2_pointers(input_data, 2)
     print(result)
 
 
