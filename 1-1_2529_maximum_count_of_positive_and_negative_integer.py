@@ -85,12 +85,15 @@ def maximumCount_2nd(nums: list[int]) -> int:  # Runtime 83.20%, Memory 50.70%
 
 
 def maximumCount_3rd(nums: list[int]) -> int:  # this method is from others, Runtime 96.30%, Memory 91.70%
-    if nums[0] == nums[-1] == 0:
+    if nums[0] == nums[-1] == 0:  # 全0的case
         return 0
     else:
-        if nums[0] > 0 or nums[-1] < 0:
+        if nums[0] > 0 or nums[-1] < 0:  # 全positive or 全negative的case
             return len(nums)
         else:
+            # 找到positive & negative 的邊界 = right, left交錯的地方
+            # left要往positive去
+            # right要往negative去
             left, right = 0, len(nums) - 1
             print(f"{left=}")
             print(f"{right=}")
@@ -108,14 +111,14 @@ def maximumCount_3rd(nums: list[int]) -> int:  # this method is from others, Run
                     right = middle - 1
                     print(f"{left=}")
                     print(f"{right=}")
-                else:
+                else:  # 把0去掉
                     print("delete 0")
                     print(f"{left=}")
                     print(f"{right=}")
                     del nums[middle]
                 print("-----------")
 
-            return max(left, len(nums) - left)
+            return max(left, len(nums) - left)  # left = amount of negative
 
 
 if __name__ == "__main__":

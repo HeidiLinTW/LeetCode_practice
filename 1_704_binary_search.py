@@ -1,9 +1,20 @@
 """
 给定一个n个元素有序的（升序）整型数组nums 和一个目标值target，写一个函数搜索nums中的 target，如果目标值存在返回下标，否则返回 -1。
 
+Constraints:
+
+a. 1 <= nums.length <= 10000
+b. -10000 < nums[i], target < 10000
+c. All the integers in nums are unique.
+d. nums is sorted in ascending order.
+
 来源：力扣（LeetCode）
 链接：https://leetcode.cn/problems/binary-search
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+[重點]
+1. n个元素"有序"的（升序）
+2. 元素不重複，所以才能用二分法
 """
 
 
