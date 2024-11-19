@@ -11,6 +11,7 @@ The remaining elements of nums are not important as well as the size of nums.
 
 2.
 Return k.
+但也會檢查array有沒有被改對
 """
 
 
@@ -27,6 +28,10 @@ def removeElement(nums: list[int], val: int) -> int:
 
 
 def removeElement_2_pointers(nums: list[int], val: int) -> int:
+    """
+    用fast走過原本的數列
+    用slow作為移除目標數字的新數列
+    """
     slow = 0
     for fast in range(len(nums)):
         if nums[fast] != val:
