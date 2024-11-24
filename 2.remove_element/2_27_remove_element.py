@@ -29,6 +29,7 @@ def removeElement(nums: list[int], val: int) -> int:
 
 def removeElement_2_pointers(nums: list[int], val: int) -> int:
     """
+    雙指標
     用fast走過原本的數列
     用slow作為移除目標數字的新數列
     """
